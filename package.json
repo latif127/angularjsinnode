@@ -1,0 +1,14 @@
+{
+  "name": "angularjsinnode",
+  "version": "1.0.0",
+  "description": "AngularJS in NodeJS ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abdul Latif",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

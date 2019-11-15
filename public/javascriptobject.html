@@ -1,0 +1,175 @@
+Create two car objects that has properties:
+
+Make
+Model
+Color
+Mileage
+isWorking
+
+driveToWork()-------
+
+add 8 to existing mileage, alert old and new mileage
+
+driveAroundTheWorld()-------
+
+add 24000 to existing mileage, alert old and new mileage, alert car needs a TuneUp, set isWorking to false
+
+getTuneUp()-------
+
+alert car ready to go and set isWorking true
+
+honk()--------
+
+alert Honk
+
+How would we run the car's driveToWork method?
+
+How would we run the car's driveAroundWorld method?
+
+How would we run the getTuneUp method?
+
+ 
+
+ 
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Demo</title>
+
+</head>
+
+<body>
+
+    <h1>JavaScript Object</h1>
+
+    <script>
+
+        var car={
+            Make:'Toyota', 
+            Model: 'Camry',
+            Color: 'White',
+            Mileage: 63000,
+            isWorking:true,
+
+            myCar:function(){
+                return this.Color+' '+ this.Make+' '+this.Model;
+            },
+
+            driveToWork: function(){
+                alert("Drive to Work: Old Mileage: "+this.Mileage+" Mileage: "+(this.Mileage+8));
+                this.Mileage=this.Mileage+8;
+            },
+
+            driveAroundTheWorld: function(){
+                alert("Drive around the World: Old Mileage: "+this.Mileage+" Mileage: "+(this.Mileage+2400)+'. the car needs a TuneUp');
+                this.isWorking=false;
+                this.Mileage=(this.Mileage+2400);
+            },
+
+            getTuneUp: function(){
+                this.isWorking=true;
+                alert("It is tuned up and working fine")
+            },
+
+            getCondition: function(){
+                if(this.isWorking==true){
+                    alert("This car is working");
+                }else{
+                    alert("This car is not working, it needs TuneUp")
+                }
+            },
+
+            honk: function(){
+                alert("Honk...");
+            }
+
+        };
+
+        
+
+        var car1=car.myCar();
+        console.log(car1);
+        car.driveToWork();
+        car.driveAroundTheWorld();
+        car.getCondition();
+        car.getTuneUp();
+        car.getCondition();
+        car.honk();
+
+        console.log("Current Mileage: "+car.Mileage);
+
+        function car1(Make, Model, Color, Mileage, isWorking){
+            this.Make=Make;
+            this.Model=Model;
+            this.Color=Color;
+            this.Mileage=Mileage;
+            this.isWorking=isWorking;
+ 
+
+            this.myCar=function(){
+                return this.Color+' '+ this.Make+' '+this.Model;
+            };
+
+            this.driveToWork= function(){
+                alert("Drive to Work: Old Mileage: "+this.Mileage+" Mileage: "+(this.Mileage+8));
+                this.Mileage=this.Mileage+8;
+            };
+
+            this.driveAroundTheWorld= function(){
+                alert("Drive around the World: Old Mileage: "+this.Mileage+" Mileage: "+(this.Mileage+2400)+'. the car needs a TuneUp');
+                this.isWorking=false;
+                this.Mileage=(this.Mileage+2400);
+            };
+
+            this.getTuneUp=function(){
+                this.isWorking=true;
+                alert("It is tuned up and working fine")
+            };
+
+            this.getCondition= function(){
+                if(this.isWorking==true){
+                    alert("This car is working");
+                }else{
+                    alert("This car is not working, it needs TuneUp")
+                }
+            };
+            this.honk= function(){
+                alert("Honk...");
+            };
+        }
+
+ 
+
+        var myNewCar=new car1("Toyota", "Camry", "Silver", 7321, true);
+
+
+        console.log(myNewCar.myCar());
+
+        myNewCar.driveToWork();
+
+        myNewCar.driveAroundTheWorld();
+
+        myNewCar.getCondition();
+
+        myNewCar.getTuneUp();
+
+        myNewCar.getCondition();
+
+        myNewCar.honk();
+
+    </script>
+
+</body>
+
+</html>
+

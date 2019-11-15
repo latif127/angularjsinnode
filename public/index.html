@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" ng-app="myModule">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="js/script.js"></script>
+    <title>AngularJS</title>
+  </head>
+  <body> 
+      <div class="container" ng-controller="myController">
+        <h3 class="text-center">{{appTitle}}</h3>
+        <div class="row">
+          <div class="col mt-25">
+            <table>
+              <tr>
+                <td><label>Name</label></td>
+                <td width="20%"><input type="text" class="form-control" name="name" ng-model="newStudent.name"/></td>
+                <td><label>Address</label></td>
+                <td width="20%"><input type="text" class="form-control" name="address" ng-model="newStudent.address"/></td>
+                <td><label>Dept</label></td>
+                <td width="20%"><input type="text" class="form-control" name="dept" ng-model="newStudent.dept"/></td>
+                <td>
+                  <input type="hidden"  name="id" ng-model="newStudent.id"/>
+                  <input type="button" value="Save" class="btn btn-primary" ng-click="saveRec()"/>
+                  <input type="button" value="Cancel" class="btn btn-outline-primary" ng-click="cancelRec()"/>
+                </td>
+              </tr>
+            </table>
+            <br/>
+            
+            <table class="table table-bordered table-triped table-sm">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Department</th>
+                  <th colspan="2">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="student in students">
+                  <td>{{student.name}}</td>
+                  <td>{{student.address}}</td>
+                  <td>{{student.dept}}</td>
+                  <td>
+                    <input type="submit" class="btn btn-primary" value="Edit" ng-click="editRec(student.id)"/>
+                  </td>
+                  <td>
+                      <input type="submit" class="btn btn-danger" value="Delete" ng-click="deleteRec(student.id)"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

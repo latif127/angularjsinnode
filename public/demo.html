@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Welcome to Selenium tutorial. In this tutorial, we'll
+            work with Selenium WebDriver, but first of all, an introduction to WebDriver.
+            WebDriver is an open source and free tool. It was released in the year
+            2009 and it is a very popular
+            tool for test automation of web applications.
+            Now,
+            the difference between Selenium IDE and Selenium WebDriver is that the Selenium IDE works only with the Firefox browser.
+            But WebDriver works with multiple browsers like Firefox, IE, Chrome and other browsers.
+            It also works on a number of operating systems like Windows,
+            Mac, Linux and Solaris.</p></p>
+            And in WebDriver, you have to write your own test automation code in any
+            programming language that is supported. So, WebDriver supports a number of
+            popular programming languages like Java, C#, Ruby, Python and so on.
+            WebDriver is really powerful and fun to use.
+            So it makes it a very popular tool of choice for test automation of web applications.
+            Now, let us get started with WebDriver.</p></p>
+            First of all, let us see
+            where we can get WebDriver? So, first of all you have to go to the official selenium web site which is
+            www.seleniumhq.org
+            Download tab and in the Download tab, there are different sections for different tools.
+            For example, the first section is for selenium IDE. You scroll a little below you will come across Selenium WebDriver.
+            In this demo, we'll be using the Java programming language, so we need to download Selenium WebDriver for Java.
+            Now one thing to keep in mind. Is that the Selenium WebDriver is not a tool with its own UI or
+            something that you need to install etc.</p></p>
+            Basically, it is a library of built-in methods that work on different web browsers like
+            Firefox, Internet Explorer and Chrome.</p></p>
+            So, we need to download the Selenium WebDriver
+            library and use it along with our programming language of choice in order to create the test automation script.
+            So, within the Selenium WebDriver section,
+            just click on the download link over here.
+            And it says
+            where do you want to save this file? So I am going to save this file in
+            my local computer.</p></p>
+            So, I can save it in
+            webdriver and let me save it over here.
+            So, it takes a few seconds to save it.
+            Now, it is in the form of a zip archive, so I need to unzip it also.
+            So, let me just
+            do that.
+            So, I saved it
+            over here.
+            And
+            the Selenium WebDriver is now downloaded.
+            So let me close this and now, I can extract it and I can extract it in the same folder.
+            Now, meantime it is extracting so
+            what we are going to do is use
+            Selenium WebDriver and
+            automate a test on our web application so today what we are going to do is automate some
+            user actions on
+            the Wikipedia website, so let me show you what we are trying to achieve today.
+            So, if I go to
+            Wikipedia...
+            So, on the Wikipedia home page there are links for Wikipedia sections of different languages, so I want to click on English.
+            Then once it is on the English Wikipedia, Main page there. I want to search for a term.
+            There is a text box on the main English page of Wikipedia.
+            And there I can type in the search term that I want to search.</p></p>
+            So,
+            this is the main English page
+            of Wikipedia so I am going to search for "software" and submit this page.
+            So, since the "software" has just one article in Wikipedia,
+            it will directly take us to the software page.</p></p>
+            And then I want to close the browser, so this is what we are trying to achieve today.
+            Now, let us see how we can accomplish these user actions in Selenium WebDriver.
+            So, this is the Eclipse Ide for Java developers. If you don't have, it you can go www.eclipse.org
+            And from there,
+            you can download the latest eclipse editor. So, all I have done is created a new Java project.
+            You can create a Java project by giving File > New Java project and give the name.
+            Then it comes with an src folder built into it within src.</p></p>
+            We can create any package. This is an optional step really.
+            And within the package or the src folder, you can right click and click on New
+            class and then it will ask you, What is the name of the class?
+            And in my case, I gave the name of the class as TestWikipedia.</p></p>
+            Now, before I start writing code with WebDriver, I have to include
+            the WebDriver reference to this project, so how to include it is, you right-click on the project and you go to the project properties.
+            Then go to the Java build path and here click on Add external jars.</p></p>
+            Now,
+            the external jars
+            are in this folder that we just extracted.
+            Not this one, so let me remove this add external jars
+            And here there is going to be a folder.
+            So, let me find where it is.</p></p>
+            D:\Downloads\WebDriver
+            Then
+            This was D:\Downloads\WebDriver\selenium-java-2.40.0
+            This is the folder which we unzipped so it contains a folder of the same name.
+            And within this we get a couple of jar files. So, select both of them and click on Open.
+            And there are more jar files, but they are within the libs folder.
+            So within libs, I just do a Ctrl+A and select all of them and click on Open and just click on OK.
+            So, now this particular project selenium tutorial 2 has a reference to all the latest Selenium WebDriver jar files.
+            So, basically it has all the
+            Selenium WebDriver latest code available.
+            So, let us get started with writing the code.
+            So, first what I want to do is
+            create a driver object.</p></p>
+            So in Selenium,
+            the type of that object is a WebDriver, so I give the data type as WebDriver.
+            WebDriver driver = new and I want to use
+            Firefox browser,
+            WebDriver driver = new FirefoxDriver();
+            Now here you can see a couple of errors are over here. That is because we have not put the import statement.
+            So, if you hover your mouse on the error, it gives you some quick fixes so I can import the WebDriver and
+            it is showing
+            where exactly in the selenium webdriver jar files this class
+            is present so just click on import WebDriver.
+            And similar thing we can do for the Firefox driver. import FirefoxDriver.
+            So, automatically Eclipse adds those
+            import statements.</p></p>
+            So, I have created the driver object. Now, what I want to do is navigate to the Wikipedia main website.
+            So, the command for that is "get". So driver .get and after get,
+            we can give the URL.
+            So, I can give the entire URL
+            http://www.wikipedia.org
+            Then once it navigates over there, I want to click on the English link, so first I need to reference it.
+            So, there is a
+            object WebElement
+            So I have just created a
+            link object of the type WebElement and
+            import this one also.</p></p>
+            And what I want to do is find this link on the main Wikipedia page. So, I can give link = driver.
+            and the method to find an element on the web page is findElement.
+            So I give findElement and there are several ways to find the element.
+            But we have to use the By method.</p></p>
+            So I am going to use By.linkText because I know that the text is always going to contain "English".
+            And this is where I want to go.</p></p>
+            So, I get a reference
+            to the link now what I want to do is click on that link so that it takes me to the English website.
+            So link.click method
+            Sorry, not clear!
+            I want to click on that link and
+            then I just wanted to wait there for some time.
+            So we can use the Thread.sleep command of Java.
+            Then here give the time in milliseconds, so let us say, I just want to wait for
+            five thousand milliseconds or five seconds.</p></p>
+            Then,
+            once we are on the English main page
+            of Wikipedia,
+            what we need to do is enter our search term in the search text box.
+            But before that we have to get rid of this error.
+            So Thread.sleep
+            can throw an exception. So what we can do is just click on Add throws exception.
+            And that will take care of it, so there are no errors .
+            In fact, you cannot run a Java program if there are any compliation errors in it.
+            It simply won't run.</p></p>
+            So, next what I want to do is
+            create a reference to the search text box. So create another WebElement.
+            WebElement searchBox
+            and I need to find the search box on the English page, so searchBox = driver.findElement
+            and
+            I know the id of that element is
+            "searchInput", so I am going to use By.Id
+            And I can put in the Id here.</p></p>
+            searchInput
+            So, I have found out the search box. Now, what I want to do is type in my search term inside the search box.
+            So the command, WebDriver command for that is
+            sendKeys. searchBox.sendKeys and
+            what I want to type in the search box is
+            "software"
+            Then, again
+            I want it to just wait for some time so I am going to put another sleep for 5 seconds.
+            and meanwhile it can
+            wait and after that, I just want to close the browser instance of WebDriver, so I give driver.quit();
+            So that is the code that I already demonstrated on the Wikipedia page so all we need to do now is
+            run it to see if it works as
+            per our
+            expectation. So I am running it now and once WebDriver
+            runs, it can create a new instance of the Firefox browser.
+            So, you can see it has opened an instance of the Firefox browser and down below you can see WebDriver is written over here.
+            My hands are away from the keyboard and the mouse.
+            And automatically it is going to find the web element with English and go to the English, main page.
+            So, you can see the URL has already updated and it is on the English
+            Wikipedia website.</p></p>
+            And
+            once it is over there, it will
+            look for ... so the English page is there. It has put the software search term and
+            then quit.</p></p>
+            One thing we missed over here. Is that we did not actually navigate to the software page.
+            That is because we did not submit it.
+            So, we can just give searchBox.submit(); and that will take care of it.</p></p>
+            So, let us just run it one more time to see everything works as per our expectation.
+            Working with Selenium WebDriver is
+            very easy and WebDriver has a lot of
+            powerful commands that you can use in your test automation.
+            You can implement the logic or any logic that you can
+            implement in a programming language and
+            use those powerful features of the programming language along with the powerful features of Selenium WebDriver and
+            you can easily automate
+            your test cases and create your automated test scripts
+            in Selenium WebDriver in the programming language of your choice.
+            So in the execution we are on software and now it should
+            submit it. Meaning Eress enter on the page to re-post it.</p></p>
+            And now you can see the URL is updated and the Wikipedia is on the
+            Software page and then after waiting 5 seconds, it will automatically close the browser instance of Firefox.
+            So,
+            that is how we do the test automation in WebDriver.
+            One powerful advantage of WebDriver Is that it works in multiple browsers we can work in Firefox,
+            So we can work in internet explorer. We can work in
+            Chrome. We can work in Opera. We can work in Safari, so let us see how we can update our
+            automated test Script over here to use instead of using Firefox, we can use Internet Explorer.
+            So, the way to do it is very simple.</p></p>
+            So, all we need to do is... I am going to comment out the line over here.
+            In
+            Internet Explorer
+            we have to do one more thing and that is we have to set the property so I am writing System.setProperty
+            and
+            we have to give a couple of values here. This is just a one-time activity.
+            webdriver.ie.driver and
+            here I have to give the path of where I have downloaded this file. This file is also available from the
+            seleniumhq.org
+            website
+            Now, after this all I need to do is
+            last time we put WebDriver driver = new FirefoxDriver();
+            But this time what we are going to do is put
+            WebDriver driver=new InternetExplorerDriver();
+            and
+            here there is an error that is because we have not put the import statement.
+            So let us put the import statement over here.
+            And that is the only change we need to make in this automated test script.</p></p>
+            Earlier, it was running with Firefox, but now it should run with the Internet Explorer browser.
+            So let us run this now to see if it works.
+            With Internet Explorer exactly the same code that we have already written.
+            So you can see WebDriver has launched Internet Explorer browser it has navigated to the Wikipedia
+            website
+            And now it should click on the English link to go to the English Wikipedia main page
+            and
+            yes, it has done that then it should type "Software' in the search text box.
+            And
+            submit that form to go to the Software Wikipedia page, so it has typed "Software"
+            Now it should navigate to the
+            Software Wikipedia page and then automatically close the internet Explorer browser.
+            So that is how simple it is to switch from one browser to another. So I hope this gives you some
+            idea and appreciation about Selenium WebDriver.
+            For more details, you can
+            contact us for the Selenium IDE and Selenium WebDriver training. We cover a number of topics in that training
+            first of all we cover object-oriented programming concepts
+            Then we cover the Java programming and then we covered Selenium webdriver commands in detail.
+            And we also cover TestNG.
+            unit testing framework and also page object pattern. So, you can find the contact details in
+            the description below this video and
+            you can take that training for getting very deep knowledge of Selenium WebDriver and
+            programming logic
+            with Java so that you can be very competent at
+            web test automation using Selenium WebDriver. Thank you.
+            </p>
+</body>
+</html>
